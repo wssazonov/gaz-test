@@ -1,0 +1,22 @@
+<label class="ui-form-field__label" [attr.for]="input?.id">
+  <ng-content select="ui-label,[uiLabel]" />
+</label>
+
+<div class="ui-form-field__control" (click)="focusInput()">
+  <span class="ui-form-field__affix ui-form-field__prefix">
+    <ng-content select="[uiPrefix]" />
+  </span>
+
+  <div class="ui-form-field__infix">
+    <ng-content select="input[uiInput],textarea[uiInput]" />
+  </div>
+
+  <span class="ui-form-field__affix ui-form-field__suffix">
+    <ng-content select="[uiSuffix]" />
+  </span>
+</div>
+
+<div class="ui-form-field__subscript">
+  <ng-content select="ui-hint,[uiHint]" />
+  <ng-content select="ui-error,[uiError]" />
+</div>

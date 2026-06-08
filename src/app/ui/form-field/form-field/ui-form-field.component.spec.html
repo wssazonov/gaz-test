@@ -1,0 +1,21 @@
+<ui-form-field data-testid="required-field">
+  <ui-label>Название проекта</ui-label>
+  <span uiPrefix>AZ</span>
+  <input uiInput type="text" [formControl]="requiredControl" placeholder="UI-kit Газфонд" />
+  <button uiSuffix type="button">x</button>
+  <ui-hint>Введите от 2 до 40 символов.</ui-hint>
+  <ui-error>Название обязательно.</ui-error>
+</ui-form-field>
+
+<ui-form-field data-testid="disabled-field">
+  <ui-label>Источник данных</ui-label>
+  <input uiInput type="text" [formControl]="disabledControl" />
+  <ui-hint>Значение только для чтения.</ui-hint>
+</ui-form-field>
+
+<ui-form-field data-testid="textarea-field">
+  <ui-label>Описание</ui-label>
+  <textarea uiInput [formControl]="descriptionControl"></textarea>
+  <ui-hint>Подсказка для описания.</ui-hint>
+  <ui-error>Описание слишком короткое.</ui-error>
+</ui-form-field>

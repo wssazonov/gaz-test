@@ -1,59 +1,60 @@
-# GazTest
+# Angular Form Field UI-kit
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.0.
+Тестовое задание: реализация UI-kit элемента `Form Field` по принципу использования Angular Material.
 
-## Development server
+## Что реализовано
 
-To start a local development server, run:
+- Совместимость с нативными `input` и `textarea`.
+- Работа с Reactive Forms через обычный `formControl`.
+- Поддержка `label`, `hint`, `error`, `prefix` и `suffix`.
+- Ошибка показывается только для невалидного `touched`-контрола.
+- `hint` заменяется на `error` в состоянии ошибки.
+- Для input проставляются `id`, `aria-invalid` и `aria-describedby`.
+- Prefix/suffix, hint и error передаются через content projection.
 
-```bash
-ng serve
+## Пример использования
+
+```html
+<ui-form-field>
+  <ui-label>Название проекта</ui-label>
+
+  <span uiPrefix>AZ</span>
+  <input uiInput type="text" [formControl]="titleControl" placeholder="UI-kit Газфонд" />
+  <button uiSuffix type="button" aria-label="Очистить" (click)="titleControl.setValue('')">
+    x
+  </button>
+
+  <ui-hint>Prefix и suffix передаются через content projection.</ui-hint>
+  <ui-error>Название обязательно.</ui-error>
+</ui-form-field>
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Запуск
 
 ```bash
-ng generate component component-name
+npm install
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Приложение будет доступно на `http://localhost:4200/`.
+
+## Сборка
 
 ```bash
-ng generate --help
+npm run build
 ```
 
-## Building
-
-To build the project run:
+## Тесты
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Затраченное время
 
-## Running unit tests
+Около 2 часов:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- создание Angular-проекта и базовой структуры;
+- реализация `ui-form-field`, `uiInput`, `ui-label`, `ui-hint`, `ui-error`, `uiPrefix`, `uiSuffix`;
+- настройка состояний focused/disabled/error и интеграции с Reactive Forms;
+- верстка демо-страницы, README и финальная проверка сборки.

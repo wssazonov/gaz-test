@@ -1,0 +1,221 @@
+:root {
+  --ui-primary-50: #edf6ff;
+  --ui-primary-100: #ddedff;
+  --ui-primary-200: #cce4fc;
+  --ui-primary-300: #b8dbff;
+  --ui-primary-500: #7db6fd;
+  --ui-primary-600: #5495ff;
+  --ui-primary-700: #3f73e3;
+  --ui-primary-800: #3d61d0;
+  --ui-primary-950: #2e3599;
+  --ui-danger: #dc2626;
+  --ui-danger-soft: #fef2f2;
+  --ui-text: #1f2937;
+  --ui-text-muted: #64748b;
+  --ui-border: #cbd5e1;
+  --ui-surface: #ffffff;
+}
+
+.ui-form-field {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.ui-form-field__label {
+  display: block;
+  margin: 0 0 7px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 20px;
+}
+
+.ui-form-field__control {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 8px;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 5%);
+  cursor: text;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.ui-form-field__control:has(.ui-input_textarea) {
+  align-items: stretch;
+  padding: 0 12px 6px 8px;
+}
+
+.ui-form-field__control:hover {
+  border-color: var(--ui-primary-500);
+}
+
+.ui-form-field_focused .ui-form-field__control {
+  border-color: var(--ui-primary-700);
+  box-shadow:
+    0 0 0 3px var(--ui-primary-100),
+    0 1px 2px rgb(15 23 42 / 6%);
+}
+
+.ui-form-field_error .ui-form-field__control {
+  border-color: var(--ui-danger);
+  box-shadow: 0 0 0 3px var(--ui-danger-soft);
+}
+
+.ui-form-field_disabled .ui-form-field__control {
+  border-color: #dbe3ee;
+  background: #f8fafc;
+  box-shadow: none;
+  cursor: default;
+}
+
+.ui-form-field__infix {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ui-form-field__affix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 30px;
+  min-height: 46px;
+  padding: 0 4px;
+  color: var(--ui-primary-700);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.ui-form-field__prefix:empty,
+.ui-form-field__suffix:empty {
+  display: none;
+}
+
+.ui-form-field__suffix {
+  color: #8190a7;
+}
+
+.ui-form-field_focused .ui-form-field__suffix,
+.ui-form-field_focused .ui-form-field__prefix {
+  color: var(--ui-primary-800);
+}
+
+.ui-input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 0 8px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ui-text);
+  font: inherit;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.ui-input::placeholder {
+  color: #94a3b8;
+}
+
+.ui-input:disabled {
+  color: #94a3b8;
+  cursor: default;
+}
+
+.ui-input_textarea {
+  min-height: 106px;
+  padding: 13px 8px 12px;
+  resize: vertical;
+}
+
+.ui-input[type='search']::-webkit-search-cancel-button,
+.ui-input[type='search']::-webkit-search-decoration {
+  appearance: none;
+}
+
+.ui-form-field__prefix:not(:empty) + .ui-form-field__infix .ui-input {
+  padding-left: 6px;
+}
+
+.ui-form-field__infix:has(+ .ui-form-field__suffix:not(:empty)) .ui-input {
+  padding-right: 6px;
+}
+
+.ui-form-field__subscript {
+  min-height: 22px;
+  padding: 6px 2px 0;
+}
+
+.ui-form-field__subscript > ui-hint,
+.ui-form-field__subscript > [uiHint],
+.ui-form-field__subscript > ui-error,
+.ui-form-field__subscript > [uiError] {
+  display: block;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-form-field__subscript > ui-hint,
+.ui-form-field__subscript > [uiHint] {
+  color: var(--ui-text-muted);
+}
+
+.ui-form-field__subscript > ui-error,
+.ui-form-field__subscript > [uiError] {
+  display: none;
+  color: var(--ui-danger);
+}
+
+.ui-form-field_error .ui-form-field__subscript > ui-hint,
+.ui-form-field_error .ui-form-field__subscript > [uiHint] {
+  display: none;
+}
+
+.ui-form-field_error .ui-form-field__subscript > ui-error,
+.ui-form-field_error .ui-form-field__subscript > [uiError] {
+  display: block;
+}
+
+.ui-form-field__subscript > ui-hint {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ui-form-field__suffix > button[uiSuffix] {
+  width: 32px;
+  height: 32px;
+  margin: 0 0 0 2px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--ui-primary-50);
+  color: var(--ui-primary-700);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.ui-form-field__suffix > button[uiSuffix]:hover {
+  background: var(--ui-primary-100);
+}
+
+.ui-form-field__suffix > button[uiSuffix]:disabled {
+  color: #aab6c8;
+  cursor: default;
+}

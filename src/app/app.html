@@ -1,0 +1,138 @@
+<main class="demo-shell">
+  <section class="demo-header">
+    <img class="demo-header__logo" src="/gazfond.png" alt="Газфонд" />
+
+    <div class="demo-header__title">
+      <p class="demo-kicker">Angular UI-kit</p>
+      <h1>Form Field</h1>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <div class="showcase__copy">
+      <span class="showcase__eyebrow">Основной пример</span>
+      <h2>Form Field для нативного input</h2>
+      <p>
+        Компонент собирает label, prefix, suffix, hint и error вокруг обычного поля ввода. Reactive
+        Forms и HTML-атрибуты остаются на самом input.
+      </p>
+    </div>
+
+    <ui-form-field class="showcase__field">
+      <ui-label>Название проекта</ui-label>
+      <span uiPrefix>AZ</span>
+      <input uiInput type="text" [formControl]="titleControl" placeholder="UI-kit Газфонд" />
+      <button
+        uiSuffix
+        type="button"
+        aria-label="Очистить название"
+        (click)="titleControl.setValue('')"
+      >
+        x
+      </button>
+      <ui-hint>Prefix и suffix передаются через content projection.</ui-hint>
+      <ui-error>Название обязательно.</ui-error>
+    </ui-form-field>
+  </section>
+
+  <section class="demo-grid" aria-label="Состояния поля формы">
+    <article class="demo-card">
+      <div class="demo-card__caption">
+        <h3>Label</h3>
+        <span>ui-label</span>
+      </div>
+      <ui-form-field>
+        <ui-label>ФИО</ui-label>
+        <input uiInput type="text" [formControl]="nameControl" placeholder="Иван Петров" />
+        <ui-hint>Введите от 2 до 40 символов.</ui-hint>
+        <ui-error>{{ nameErrorText }}</ui-error>
+      </ui-form-field>
+    </article>
+
+    <article class="demo-card">
+      <div class="demo-card__caption">
+        <h3>Prefix</h3>
+        <span>uiPrefix</span>
+      </div>
+      <ui-form-field>
+        <ui-label>Email</ui-label>
+        <span uiPrefix>@</span>
+        <input uiInput type="email" [formControl]="emailControl" placeholder="name@company.ru" />
+        <ui-hint>Обычные атрибуты остаются на input.</ui-hint>
+        <ui-error>Введите корректный email.</ui-error>
+      </ui-form-field>
+    </article>
+
+    <article class="demo-card">
+      <div class="demo-card__caption">
+        <h3>Error</h3>
+        <span>ui-error</span>
+      </div>
+      <ui-form-field>
+        <ui-label>Код</ui-label>
+        <input uiInput type="text" [formControl]="codeControl" placeholder="AB-1234" />
+        <span uiSuffix>!</span>
+        <ui-hint>Формат: две буквы, дефис, четыре цифры.</ui-hint>
+        <ui-error>Используйте формат AB-1234.</ui-error>
+      </ui-form-field>
+    </article>
+
+    <article class="demo-card">
+      <div class="demo-card__caption">
+        <h3>Disabled</h3>
+        <span>NgControl</span>
+      </div>
+      <ui-form-field>
+        <ui-label>Источник данных</ui-label>
+        <input uiInput type="text" [formControl]="disabledControl" />
+        <span uiSuffix>DISABLED</span>
+        <ui-hint>Обертка читает disabled из NgControl.</ui-hint>
+      </ui-form-field>
+    </article>
+
+    <article class="demo-card demo-card_wide">
+      <div class="demo-card__caption">
+        <h3>Hint</h3>
+        <span>ui-hint</span>
+      </div>
+      <ui-form-field>
+        <ui-label>Описание</ui-label>
+        <textarea
+          uiInput
+          [formControl]="descriptionControl"
+          [maxLength]="descriptionMaxLength"
+          placeholder="Опишите контракт компонента"
+        ></textarea>
+        <ui-hint>
+          <span class="hint-text">Textarea использует ту же директиву и ту же обертку.</span>
+          <span class="hint-counter"
+            >{{ descriptionControl.value.length }}/{{ descriptionMaxLength }}</span
+          >
+        </ui-hint>
+        <ui-error>{{ descriptionErrorText }}</ui-error>
+      </ui-form-field>
+    </article>
+
+    <article class="demo-card demo-card_wide">
+      <div class="demo-card__caption">
+        <h3>Suffix</h3>
+        <span>uiSuffix</span>
+      </div>
+      <ui-form-field>
+        <ui-label>Поиск</ui-label>
+        <span uiPrefix>Q</span>
+        <input uiInput type="text" [formControl]="searchControl" placeholder="Найти компонент" />
+        <button
+          uiSuffix
+          type="button"
+          aria-label="Очистить поиск"
+          [disabled]="!searchControl.value"
+          (click)="searchControl.setValue('')"
+        >
+          x
+        </button>
+        <ui-hint>В suffix можно передать кнопку, иконку или текст.</ui-hint>
+      </ui-form-field>
+    </article>
+  </section>
+</main>
