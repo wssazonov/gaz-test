@@ -36,7 +36,7 @@ npm install
 npm start
 ```
 
-Приложение будет доступно на `http://localhost:4200/`.
+Приложение будет доступно на `http://localhost:4200/`. Или https://gazfond-test.vercel.app/
 
 ## Сборка
 
@@ -58,3 +58,4 @@ npm test
 - реализация `ui-form-field`, `uiInput`, `ui-label`, `ui-hint`, `ui-error`, `uiPrefix`, `uiSuffix`;
 - настройка состояний focused/disabled/error и интеграции с Reactive Forms;
 - верстка демо-страницы, README и финальная проверка сборки.
+- покрытие тестами.
